@@ -20,12 +20,15 @@ const colors = [{
 
 export default function ColorPicker () {
   const [backgroundColor, setBackgroundColor] = useState('white')
+  const updateColor = (color) => {
+    setBackgroundColor(color);
+  }
 
   return (
     <div className='page' style={{ backgroundColor }}>
       {
         colors.map(color => (
-          <Color key={color.hex} hex={color.hex} name={color.name} />
+          <Color key={color.hex} hex={color.hex} name={color.name} onChangeColor={updateColor} />
         ))
       }
     </div>
